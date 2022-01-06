@@ -16,22 +16,16 @@
  */
 package tools
 
-import (
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/polynetwork/eth_relayer/config"
-	"testing"
-)
-
-func TestETHSigner_SignTransaction(t *testing.T) {
-	cfg := config.NewServiceConfig("./config-debug.json")
-	ethsigner := NewEthKeyStore(cfg.ETHConfig)
-	tx := &types.Transaction{}
-	tx, err := ethsigner.SignTransaction(tx)
-	if err != nil {
-		t.Fatal(err)
-	}
-	v, r, s := tx.RawSignatureValues()
-	if v.BitLen()+r.BitLen()+s.BitLen() <= 0 {
-		t.Fatal("failed to sign")
-	}
-}
+// func TestETHSigner_SignTransaction(t *testing.T) {
+// 	cfg := config.NewServiceConfig("./config-debug.json")
+// 	ethsigner := NewEthKeyStore(cfg.ETHConfig)
+// 	tx := &types.Transaction{}
+// 	tx, err := ethsigner.SignTransaction(tx)
+// 	if err != nil {
+// 		t.Fatal(err)
+// 	}
+// 	v, r, s := tx.RawSignatureValues()
+// 	if v.BitLen()+r.BitLen()+s.BitLen() <= 0 {
+// 		t.Fatal("failed to sign")
+// 	}
+// }
