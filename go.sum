@@ -528,8 +528,8 @@ github.com/zmap/zcertificate v0.0.0-20180516150559-0e3d58b1bac4/go.mod h1:5iU54t
 github.com/zmap/zcrypto v0.0.0-20190729165852-9051775e6a2e/go.mod h1:w7kd3qXHh8FNaczNjslXqvFQiv5mMWRXlL9klTUAHc8=
 github.com/zmap/zlint v0.0.0-20190806154020-fd021b4cfbeb/go.mod h1:29UiAJNsiVdvTBFCJW8e3q6dcDbOoPkhMgttOSCIMMY=
 github.com/zondax/hid v0.9.0/go.mod h1:l5wttcP0jwtdLjqjMMWFVEE7d1zO0jvSPA9OPZxWpEM=
-github.com/zouxyan/eth-contracts v0.0.0-20210118060440-a0c11940f74c h1:qHBcpo4D3d16GdBZuRRXuUhQb5uSfFyi5iPe8cfsYW4=
-github.com/zouxyan/eth-contracts v0.0.0-20210118060440-a0c11940f74c/go.mod h1:7+sPWP1/qbE3V8HbByvuoIJpBZ0TWZF50xHAJIXQ1pA=
+github.com/zouxyan/eth-contracts v0.0.0-20210115072359-e4cac6edc20c h1:3gzrpowqz7P1Uj7l/DqiYGBWLi+dvjzjjjxxzSIvVCI=
+github.com/zouxyan/eth-contracts v0.0.0-20210115072359-e4cac6edc20c/go.mod h1:7+sPWP1/qbE3V8HbByvuoIJpBZ0TWZF50xHAJIXQ1pA=
 github.com/zquestz/grab v0.0.0-20190224022517-abcee96e61b1 h1:1qKTeMTSIEvRIjvVYzgcRp0xVp0eoiRTTiHSncb5gD8=
 github.com/zquestz/grab v0.0.0-20190224022517-abcee96e61b1/go.mod h1:bslhAiUxakrA6z6CHmVyvkfpnxx18RJBwVyx2TluJWw=
 go.etcd.io/bbolt v1.3.2/go.mod h1:IbVyRI1SCnLcuJnV2u8VeU0CEYM7e686BmAb1XKL+uU=
