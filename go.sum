@@ -393,8 +393,8 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pkg/sftp v1.10.1/go.mod h1:lYOWFsE0bwd1+KfKJaKeuokY15vzFx25BLbzYYoAxZI=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/polynetwork/poly v0.0.0-20201126065907-da2c5521739e h1:zgO3sgTHKAG4tHb02KjkjH4FOBDsqEA3UZsGguBWu+I=
-github.com/polynetwork/poly v0.0.0-20201126065907-da2c5521739e/go.mod h1:43vmqmvy8X0vS1oWrCQTIw+TSUqPYvWKyb5jFiG0x4Q=
+github.com/polynetwork/poly v0.0.0-20210927034449-4797bc7a54e0 h1:pIehbS8EAkqqBRsfRcCImCQ837MR79vm0YwGUmH6QKE=
+github.com/polynetwork/poly v0.0.0-20210927034449-4797bc7a54e0/go.mod h1:43vmqmvy8X0vS1oWrCQTIw+TSUqPYvWKyb5jFiG0x4Q=
 github.com/polynetwork/poly-go-sdk v0.0.0-20201216023150-7ff89c0e43f9 h1:4cSVajvW6CWhXssS/j9iGZ2CdBoutYIH93UbMJMUNsA=
 github.com/polynetwork/poly-go-sdk v0.0.0-20201216023150-7ff89c0e43f9/go.mod h1:RMlrIaMv+UncqhHEhJkrOL7BDtX0kTRXSDZa3zR0C8g=
 github.com/prometheus/client_golang v0.9.1/go.mod h1:7SWBe2y4D6OKWSNQJUaRYU/AaXPKyh/dDVn+NZz0KFw=
