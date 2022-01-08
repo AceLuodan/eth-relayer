@@ -12,13 +12,15 @@ require (
 	github.com/polynetwork/eth-contracts v0.0.0-20200814062128-70f58e22b014
 	github.com/polynetwork/poly v0.0.0-20201126065907-da2c5521739e
 	github.com/polynetwork/poly-go-sdk v0.0.0-20201216023150-7ff89c0e43f9
-	github.com/stretchr/testify v1.6.1
+	github.com/stretchr/testify v1.7.0
 	github.com/urfave/cli v1.22.4
 	launchpad.net/gocheck v0.0.0-20140225173054-000000000087 // indirect
 )
 
 replace (
+	github.com/ethereum/go-ethereum => github.com/ethereum/go-ethereum v1.9.18
 	github.com/go-kit/kit v0.10.0 => github.com/go-kit/kit v0.8.0
 	github.com/polynetwork/eth-contracts => github.com/zouxyan/eth-contracts v0.0.0-20210115072359-e4cac6edc20c
 	github.com/polynetwork/poly => github.com/polynetwork/poly v0.0.0-20210927034449-4797bc7a54e0
+
 )

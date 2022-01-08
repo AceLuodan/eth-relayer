@@ -37,7 +37,7 @@ const (
 	DEFAULT_CONFIG_FILE_NAME = "./config.json"
 	Version                  = "1.0"
 
-	DEFAULT_LOG_LEVEL = log.InfoLog
+	DEFAULT_LOG_LEVEL = log.TraceLog
 )
 
 type ServiceConfig struct {

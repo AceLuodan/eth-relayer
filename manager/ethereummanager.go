@@ -21,6 +21,10 @@ import (
 	"encoding/binary"
 	"encoding/hex"
 	"fmt"
+	"math/big"
+	"strings"
+	"time"
+
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	ethcommon "github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
@@ -29,11 +33,9 @@ import (
 	"github.com/polynetwork/eth_relayer/config"
 	"github.com/polynetwork/eth_relayer/db"
 	common2 "github.com/polynetwork/poly/native/service/cross_chain_manager/common"
-	"math/big"
-	"strings"
-	"time"
 
 	"context"
+
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/polynetwork/eth_relayer/log"
 	"github.com/polynetwork/eth_relayer/tools"
@@ -207,6 +209,8 @@ func (this *EthereumManager) init() error {
 	} else {
 		this.currentHeight = latestHeight
 	}
+	log.Infof("EthereumManager init - thist: %s", this)
+
 	log.Infof("EthereumManager init - start height: %d", this.currentHeight)
 	return nil
 }
@@ -231,6 +235,8 @@ func (this *EthereumManager) findLastestHeight() uint64 {
 
 func (this *EthereumManager) handleNewBlock(height uint64) bool {
 	ret := this.handleBlockHeader(height)
+
+	log.Infof("EthereumManager handleNewBlock - height: %s", height)
 	if !ret {
 		log.Errorf("handleNewBlock - handleBlockHeader on height :%d failed", height)
 		return false
@@ -248,9 +254,14 @@ func (this *EthereumManager) handleBlockHeader(height uint64) bool {
 		log.Errorf("handleBlockHeader - GetNodeHeader on height :%d failed", height)
 		return false
 	}
+
+	log.Infof("EthereumManager handleNewBlock - height: %s,hdr:%s", height, hdr.ReceiptHash)
+	log.Infof("EthereumManager handleNewBlock - height: %s,hdr:%s", height, hdr)
 	rawHdr, _ := hdr.MarshalJSON()
 	raw, _ := this.polySdk.GetStorage(autils.HeaderSyncContractAddress.ToHexString(),
 		append(append([]byte(scom.MAIN_CHAIN), autils.GetUint64Bytes(this.config.ETHConfig.SideChainId)...), autils.GetUint64Bytes(height)...))
+
+	log.Infof("EthereumManager handleNewBlock - raw: %s,hdr:%s", raw, hdr)
 	if len(raw) == 0 || !bytes.Equal(raw, hdr.Hash().Bytes()) {
 		this.header4sync = append(this.header4sync, rawHdr)
 	}
@@ -323,6 +334,11 @@ func (this *EthereumManager) fetchLockDepositEvents(height uint64, client *ethcl
 			value:   []byte(evt.Rawdata),
 			height:  height,
 		}
+		log.Infof("fetchLockDepositEvent -  evt: %f", evt)
+		log.Infof("fetchLockDepositEvent -  Rawdata: %f", evt.Rawdata)
+		log.Infof("fetchLockDepositEvent -  TxHash: %f", evt.Raw.TxHash)
+		log.Infof("fetchLockDepositEvent -  crossTx: %f", crossTx)
+		log.Infof("fetchLockDepositEvent -  toChain: %d", uint32(evt.ToChainId))
 		sink := common.NewZeroCopySink(nil)
 		crossTx.Serialization(sink)
 		err = this.db.PutRetry(sink.Bytes())
