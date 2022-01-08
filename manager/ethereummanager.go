@@ -256,13 +256,13 @@ func (this *EthereumManager) handleBlockHeader(height uint64) bool {
 		return false
 	}
 
-	log.Infof("EthereumManager handleNewBlock - height: %s,hdr:%s", height, hdr.ReceiptHash)
-	log.Infof("EthereumManager handleNewBlock - height: %s,hdr:%s", height, hdr)
+	// log.Infof("EthereumManager handleNewBlock - height: %s,hdr:%s", height, hdr.ReceiptHash)
+	// log.Infof("EthereumManager handleNewBlock - height: %s,hdr:%s", height, hdr)
 	rawHdr, _ := hdr.MarshalJSON()
 	raw, _ := this.polySdk.GetStorage(autils.HeaderSyncContractAddress.ToHexString(),
 		append(append([]byte(scom.MAIN_CHAIN), autils.GetUint64Bytes(this.config.ETHConfig.SideChainId)...), autils.GetUint64Bytes(height)...))
 
-	log.Infof("EthereumManager handleNewBlock - raw: %s,hdr:%s", raw, hdr)
+	// log.Infof("EthereumManager handleNewBlock - raw: %s,hdr:%s", raw, hdr)
 	if len(raw) == 0 || !bytes.Equal(raw, hdr.Hash().Bytes()) {
 		this.header4sync = append(this.header4sync, rawHdr)
 	}
