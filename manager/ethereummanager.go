@@ -209,7 +209,7 @@ func (this *EthereumManager) init() error {
 	} else {
 		this.currentHeight = latestHeight
 	}
-	this.currentHeight = this.currentHeight + 1
+	this.currentHeight = this.currentHeight
 	log.Infof("EthereumManager init - thist: %s", this)
 
 	log.Infof("EthereumManager init - start height: %d", this.currentHeight)
