@@ -250,7 +250,8 @@ func (this *EthereumManager) handleNewBlock(height uint64) bool {
 }
 
 func (this *EthereumManager) handleBlockHeader(height uint64) bool {
-	hdr, err := this.client.HeaderByNumber(context.Background(), big.NewInt(int64(height)))
+	// hdr, err := this.client.HeaderByNumber(context.Background(), big.NewInt(int64(height)))
+	hdr, err := tools.GetNodeHeader(this.config.ETHConfig.RestURL, uint64(height))
 	if err != nil {
 		log.Errorf("handleBlockHeader - GetNodeHeader on height :%d failed", height)
 		return false
@@ -390,7 +391,8 @@ func (this *EthereumManager) rollBackToCommAncestor() {
 		if len(raw) == 0 || err != nil {
 			continue
 		}
-		hdr, err := this.client.HeaderByNumber(context.Background(), big.NewInt(int64(this.currentHeight)))
+		// hdr, err := this.client.HeaderByNumber(context.Background(), big.NewInt(int64(this.currentHeight)))
+		hdr, err := tools.GetNodeHeader(this.config.ETHConfig.RestURL, uint64(this.currentHeight))
 		if err != nil {
 			log.Errorf("rollBackToCommAncestor - failed to get header by number, so we wait for one second to retry: %v", err)
 			time.Sleep(time.Second)

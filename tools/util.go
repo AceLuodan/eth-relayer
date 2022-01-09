@@ -23,17 +23,17 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"math/big"
+	"strconv"
+	"strings"
+
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/params"
 	"github.com/ontio/ontology-crypto/ec"
 	"github.com/ontio/ontology-crypto/keypair"
 	"github.com/ontio/ontology-crypto/sm2"
 	"github.com/polynetwork/poly/common"
-	"math/big"
-	"strconv"
-	"strings"
 )
 
 type jsonError struct {
@@ -94,13 +94,18 @@ type blockReq struct {
 }
 
 type blockRsp struct {
-	JsonRPC string        `json:"jsonrpc"`
-	Result  *types.Header `json:"result,omitempty"`
-	Error   *jsonError    `json:"error,omitempty"`
-	Id      uint          `json:"id"`
+	JsonRPC string     `json:"jsonrpc"`
+	Result  *Header    `json:"result,omitempty"`
+	Error   *jsonError `json:"error,omitempty"`
+	Id      uint       `json:"id"`
 }
 
-func GetNodeHeader(url string, restClient *RestClient, height uint64) ([]byte, error) {
+// func GetNodeHeader(url string, restClient *RestClient, height uint64) ([]byte, error) {
+// func GetNodeHeader(url string, height uint64) ([]byte, error) {
+func GetNodeHeader(url string, height uint64) (*Header, error) {
+
+	restClient := NewRestClient()
+	restClient.SetAddr(url)
 	params := []interface{}{fmt.Sprintf("0x%x", height), true}
 	req := &blockReq{
 		JsonRpc: "2.0",
@@ -124,8 +129,8 @@ func GetNodeHeader(url string, restClient *RestClient, height uint64) ([]byte, e
 	if rsp.Error != nil {
 		return nil, fmt.Errorf("GetNodeHeight, unmarshal resp err: %s", rsp.Error.Message)
 	}
-	block, err := json.Marshal(rsp.Result)
-	return block, nil
+	// block, err := json.Marshal(rsp.Result)
+	return rsp.Result, nil
 }
 
 func GetNodeHeight(url string, restClient *RestClient) (uint64, error) {
@@ -288,7 +293,6 @@ func GetExplorerUrl(chainId uint64) string {
 		return "no url"
 	}
 }
-
 
 func GetEthNoCompressKey(key keypair.PublicKey) []byte {
 	var buf bytes.Buffer

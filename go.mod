@@ -14,6 +14,7 @@ require (
 	github.com/polynetwork/poly-go-sdk v0.0.0-20201216023150-7ff89c0e43f9
 	github.com/stretchr/testify v1.7.0
 	github.com/urfave/cli v1.22.4
+	golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2
 	launchpad.net/gocheck v0.0.0-20140225173054-000000000087 // indirect
 )
 
