@@ -22,6 +22,10 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"math/rand"
+	"strconv"
+	"strings"
+
 	"github.com/ethereum/go-ethereum/accounts"
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	ethcommon "github.com/ethereum/go-ethereum/common"
@@ -38,11 +42,8 @@ import (
 	sdk "github.com/polynetwork/poly-go-sdk"
 	"github.com/polynetwork/poly/common"
 	"github.com/polynetwork/poly/common/password"
-	"github.com/polynetwork/poly/consensus/vbft/config"
+	vconfig "github.com/polynetwork/poly/consensus/vbft/config"
 	common2 "github.com/polynetwork/poly/native/service/cross_chain_manager/common"
-	"math/rand"
-	"strconv"
-	"strings"
 
 	"math/big"
 	"time"
@@ -437,7 +438,12 @@ func (this *EthSender) commitDepositEventsWithHeader(header *polytypes.Header, p
 		return true
 	}
 	//log.Infof("poly proof with header, height: %d, key: %s, proof: %s", header.Height-1, string(key), proof.AuditPath)
+	log.Errorf("commitDepositEventsWithHeader relayed to eth: ( from_chain_id: %d, from_txhash: %x,  param.Txhash: %x)",
+		param.FromChainID, param.TxHash, param.MakeTxParam.TxHash)
 
+	b, _ := common.AddressParseFromBytes(param.MakeTxParam.ToContractAddress)
+	log.Errorf("commitDepositEventsWithHeader relayed to eth: ( b: %s, Method: %s,  param.Args: %s)",
+		b, param.MakeTxParam.Method, param.MakeTxParam.Args)
 	rawProof, _ := hex.DecodeString(headerProof)
 	var rawAnchor []byte
 	if anchorHeader != nil {
@@ -455,6 +461,10 @@ func (this *EthSender) commitDepositEventsWithHeader(header *polytypes.Header, p
 		log.Errorf("commitDepositEventsWithHeader - get suggest sas price failed error: %s", err.Error())
 		return false
 	}
+	log.Errorf("commitDepositEventsWithHeader - this.config.ETHConfig.ECCMContractAddress: %s", this.config.ETHConfig.ECCMContractAddress)
+	log.Errorf("commitDepositEventsWithHeader - this.acc.Address: %s", this.acc.Address.String())
+	log.Errorf("commitDepositEventsWithHeader - gasPrice: %s", gasPrice)
+	log.Errorf("commitDepositEventsWithHeader - txData: %s", txData)
 	contractaddr := ethcommon.HexToAddress(this.config.ETHConfig.ECCMContractAddress)
 	callMsg := ethereum.CallMsg{
 		From: this.acc.Address, To: &contractaddr, Gas: 0, GasPrice: gasPrice,
