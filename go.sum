@@ -1,6 +1,8 @@
 bitbucket.org/liamstask/goose v0.0.0-20150115234039-8488cc47d90c/go.mod h1:hSVuE3qU7grINVSwrmzHfpg9k87ALBk+XaualNyUzI4=
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/99designs/keyring v1.1.3/go.mod h1:657DQuMrBZRtuL/voxVyiyb6zpMehlm5vLB9Qwrv904=
+github.com/AceLuodan/poly v0.0.0-20220109073531-38ed6323de18 h1:+eJ90rvJUakoJAyFYGR0bjW7iGBdNWcmtvjN7mBZkEA=
+github.com/AceLuodan/poly v0.0.0-20220109073531-38ed6323de18/go.mod h1:43vmqmvy8X0vS1oWrCQTIw+TSUqPYvWKyb5jFiG0x4Q=
 github.com/Azure/azure-pipeline-go v0.2.1/go.mod h1:UGSo8XybXnIGZ3epmeBw7Jdz+HiUVpqIlpz/HKHylF4=
 github.com/Azure/azure-pipeline-go v0.2.2/go.mod h1:4rQ/NZncSvGqNkkOsNpOU1tgoNuIlp9AfUH5G1tvCHc=
 github.com/Azure/azure-storage-blob-go v0.7.0/go.mod h1:f9YQKtsG1nMisotuTPpO0tjNuEjKRYAcJU8/ydDI++4=
@@ -389,8 +391,6 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pkg/sftp v1.10.1/go.mod h1:lYOWFsE0bwd1+KfKJaKeuokY15vzFx25BLbzYYoAxZI=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/polynetwork/poly v0.0.0-20210927034449-4797bc7a54e0 h1:pIehbS8EAkqqBRsfRcCImCQ837MR79vm0YwGUmH6QKE=
-github.com/polynetwork/poly v0.0.0-20210927034449-4797bc7a54e0/go.mod h1:43vmqmvy8X0vS1oWrCQTIw+TSUqPYvWKyb5jFiG0x4Q=
 github.com/polynetwork/poly-go-sdk v0.0.0-20201216023150-7ff89c0e43f9 h1:4cSVajvW6CWhXssS/j9iGZ2CdBoutYIH93UbMJMUNsA=
 github.com/polynetwork/poly-go-sdk v0.0.0-20201216023150-7ff89c0e43f9/go.mod h1:RMlrIaMv+UncqhHEhJkrOL7BDtX0kTRXSDZa3zR0C8g=
 github.com/prometheus/client_golang v0.9.1/go.mod h1:7SWBe2y4D6OKWSNQJUaRYU/AaXPKyh/dDVn+NZz0KFw=
